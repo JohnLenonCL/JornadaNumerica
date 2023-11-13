@@ -30,7 +30,7 @@ tile_data = PoolIntArray( -1310692, 2, 0, -1245157, 3, 0, -1245151, 3, 0, -11796
 position = Vector2( 230, 2338 )
 
 [node name="Aluno2" parent="Alunos" instance=ExtResource( 5 )]
-position = Vector2( 1279, 1791 )
+position = Vector2( 2511, 1862 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -84,7 +84,7 @@ __meta__ = {
 texture = ExtResource( 6 )
 
 [node name="Aluno8" parent="Alunos" instance=ExtResource( 5 )]
-position = Vector2( 398, 502 )
+position = Vector2( 406, 530 )
 __meta__ = {
 "_edit_group_": true
 }

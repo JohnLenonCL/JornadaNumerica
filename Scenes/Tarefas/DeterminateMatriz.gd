@@ -1,17 +1,22 @@
 extends CanvasLayer
 
-onready var equ = get_node("Equação")
+onready var equ = get_node("Matriz")
 onready var res = get_node("Resultado")
-var a = str(randi()%15)
-var b = str(randi()%15)
-var c = str(randi()%15)
-var d = str(randi()%15)
+var a = str(randi()%9)
+var b = str(randi()%9)
+var c = str(randi()%9)
+var d = str(randi()%9)
+var e = str(randi()%9)
+var f = str(randi()%9)
+var g = str(randi()%9)
+var h = str(randi()%9)
+var i = str(randi()%9)
 
-var resultado = (int(b) * int(c) + int(d) - int(a))
+var resultado = ((int(a)*int(e)*int(i) + int(b)*int(f)*int(g) + int(c)*int(d)*int(h)) - (int(c)*int(e)*int(g) + int(a)*int(f)*int(h) + int(b)*int(e)*int(i)))
 
 func _ready():
 	print("Resultado: "+str(resultado))
-	equ.set_text("X + " + a + " = " + b + " * " + c + " + " + d)
+	equ.set_text(" | " + a + "  " + b + "  " + c + " | " + " \n | " + d + "  " + e + "  " + f + " | " + " \n | " + g + "  " + h + "  " + i + " | ")
 
 func _on_Button0_pressed():
 	res.set_text(res.get_text() + "0")
@@ -46,6 +51,7 @@ func _on_Button9_pressed():
 func _on_ButtonMenos_pressed():
 	res.set_text(res.get_text() + "-")
 
+
 func _on_ButtonApagar_pressed():
 	var text = []
 	for i in res.get_text():
@@ -61,6 +67,4 @@ func _on_Finalizar_pressed():
 		queue_free()
 	else:
 		print("errou")
-
-
-
+	
