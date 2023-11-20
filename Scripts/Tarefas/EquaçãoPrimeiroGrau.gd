@@ -57,10 +57,12 @@ func _on_ButtonApagar_pressed():
 
 
 func _on_Finalizar_pressed():
+	Global.teste += 1
 	if str(resultado) == str(res.get_text()):
+		Global.acerto = 1
 		queue_free()
 	else:
-		print("errou")
+		queue_free()
 
 
 

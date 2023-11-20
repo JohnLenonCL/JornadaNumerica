@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Tarefas/IconeTarefa.gd" type="Script" id=1]
+[ext_resource path="res://Assets/PNG/Botao/Paper.png" type="Texture" id=2]
+[ext_resource path="res://Assets/PNG/Botao/verificado.png" type="Texture" id=3]
 
 [node name="IconeTarefa" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -10,5 +12,17 @@ margin_left = 293.0
 margin_top = 54.0
 margin_right = 315.0
 margin_bottom = 74.0
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="Tarefa" type="Sprite" parent="."]
+position = Vector2( 304, 64 )
+scale = Vector2( 0.00546078, 0.00546078 )
+texture = ExtResource( 2 )
+
+[node name="TarefaConcluida" type="Sprite" parent="."]
+position = Vector2( 304, 64 )
+scale = Vector2( 0.0283202, 0.0283202 )
+texture = ExtResource( 3 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

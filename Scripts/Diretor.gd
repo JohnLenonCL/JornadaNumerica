@@ -6,6 +6,7 @@ var velocity := Vector2.ZERO
 var player : KinematicBody2D = null
 var path : Array = []
 var navigation_path: Navigation2D = null
+var alvo_aleatorio
 
 
 func _ready():
@@ -14,6 +15,7 @@ func _ready():
 	navigation_path = get_parent().get_node("Navigation2D")
 
 func _physics_process(delta):
+	alvo_aleatorio = randi()%8
 	if !Engine.editor_hint:
 		if player and navigation_path:
 			generate_path()
@@ -41,8 +43,25 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D_body_exited(body):
 	if body.get_name() == "Player":
-		player = get_parent().get_node("Alunos/Aluno")
 		$Light2D.color = Color(1,1,1,0.15)
+		if alvo_aleatorio == 0:
+			player = get_parent().get_node("Alunos/Aluno")
+		if alvo_aleatorio == 1:
+			player = get_parent().get_node("Alunos/Aluno2")
+		if alvo_aleatorio == 2:
+			player = get_parent().get_node("Alunos/Aluno3")
+		if alvo_aleatorio == 3:
+			player = get_parent().get_node("Alunos/Aluno4")
+		if alvo_aleatorio == 4:
+			player = get_parent().get_node("Alunos/Aluno5")
+		if alvo_aleatorio == 5:
+			player = get_parent().get_node("Alunos/Aluno6")
+		if alvo_aleatorio == 6:
+			player = get_parent().get_node("Alunos/Aluno7")
+		if alvo_aleatorio == 7:
+			player = get_parent().get_node("Alunos/Aluno8")
+		if alvo_aleatorio == 8:
+			player = get_parent().get_node("Alunos/Aluno9")
 
 
 func _on_Area2DAlunos_body_entered(body):

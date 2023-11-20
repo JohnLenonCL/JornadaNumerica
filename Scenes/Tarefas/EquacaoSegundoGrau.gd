@@ -1,22 +1,23 @@
 extends CanvasLayer
 
-onready var equ = get_node("Matriz")
+onready var equ = get_node("Equacao")
 onready var res = get_node("Resultado")
-var a = str(randi()%9)
+var a = str(randi()%9 + 1)
 var b = str(randi()%9)
 var c = str(randi()%9)
 var d = str(randi()%9)
-var e = str(randi()%9)
-var f = str(randi()%9)
-var g = str(randi()%9)
-var h = str(randi()%9)
-var i = str(randi()%9)
 
-var resultado = ((int(a)*int(e)*int(i) + int(b)*int(f)*int(g) + int(c)*int(d)*int(h)) - (int(c)*int(e)*int(g) + int(a)*int(f)*int(h) + int(b)*int(e)*int(i)))
+var bhaskara = (-int(b))*(-int(b))-4*int(a)*(-int(c))
+
+var resultado = (int(b)+sqrt(bhaskara))/(2*int(a))
+var resultado2 = (int(b)-sqrt(bhaskara))/(2*int(a))
+var resultado3 = resultado + resultado2
 
 func _ready():
-	print("Resultado: "+str(resultado))
-	equ.set_text(" | " + a + "  " + b + "  " + c + " | " + " \n | " + d + "  " + e + "  " + f + " | " + " \n | " + g + "  " + h + "  " + i + " | ")
+	print("X': "+str(resultado))
+	print("X'': "+str(resultado2))
+	print("resultado: "+str(resultado3))
+	equ.set_text(a + "x² - " + b + "x - " + c + " = 0")
 
 func _on_Button0_pressed():
 	res.set_text(res.get_text() + "0")
@@ -51,6 +52,9 @@ func _on_Button9_pressed():
 func _on_ButtonMenos_pressed():
 	res.set_text(res.get_text() + "-")
 
+func _on_ButtonPonto_pressed():
+	res.set_text(res.get_text() + ".")
+	
 
 func _on_ButtonApagar_pressed():
 	var text = []
@@ -64,9 +68,12 @@ func _on_ButtonApagar_pressed():
 
 func _on_Finalizar_pressed():
 	Global.teste += 1
-	if str(resultado) == str(res.get_text()):
+	if str(resultado) == str(res.get_text()) || str(resultado2) == str(res.get_text()):
 		Global.acerto = 1
 		queue_free()
 	else:
 		queue_free()
 	
+
+
+
